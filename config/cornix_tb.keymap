@@ -59,8 +59,8 @@
     >;
 };
 
-// Scroll mode is handled by hardware (scroll-layers property in trackball driver)
-// No need for trackball_scroll_listener configuration
+// Scroll mode: layer 3 (SCROLL) activates scroller via overlay configuration
+// Scroller configuration is in config/boards/cornix_left.overlay
 
 &mt {
     flavor = "balanced";
@@ -206,16 +206,16 @@
 
         mouse_layer {
             // -----------------------------------------------------------------------------------------
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|                   | TRANS| TRANS| TRANS| TRANS| TRANS| NONE |
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|  TO3   |  |  TO0  | TRANS| MB1  | MO3  | MB2  | MB3  | NONE |
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS| TRANS |  | TRANS | TRANS| TRANS| TRANS| TRANS| TRANS| NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|                   | TRANS| TRANS| MB3  | TRANS| TRANS| NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|        |  |  TO0  | TRANS| MB1  | UP   | MB2  | TRANS| NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS| TRANS |  | TRANS | TRANS| LEFT | DOWN | RGT  | TRANS| NONE |
             //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | BOOT |
 
             bindings = <
-&none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans  &trans    &trans      &none
-&none  &trans  &trans  &trans  &trans  &trans  &to 3   &to 0   &trans  &mkp MB1  &mo 3   &mkp MB2  &mkp MB3    &none
-&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans      &none
-&none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans  &trans    &bootloader &none
+&none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &mkp MB3  &trans     &trans      &none
+&none  &trans  &trans  &trans  &trans  &trans  &trans  &to 0   &trans  &mkp MB1  &kp UP    &mkp MB2   &trans      &none
+&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &none
+&none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans     &bootloader &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
