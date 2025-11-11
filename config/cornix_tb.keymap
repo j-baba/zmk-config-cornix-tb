@@ -52,9 +52,11 @@
     // Auto-mouse layer: activates layer 4 (MOUSE) when trackball moves, 600ms timeout
     // Invert both X and Y axes to reverse trackball direction (180-degree rotation)
     // Value 6 = INPUT_TRANSFORM_X_INVERT (2) | INPUT_TRANSFORM_Y_INVERT (4)
+    // Scaler reduces mouse pointer speed to 2/3 for better precision
 
     input-processors = <
         &zip_xy_transform 6
+        &zip_xy_scaler 2 3
         &zip_temp_layer MOUSE 600
     >;
 };
