@@ -18,7 +18,11 @@
         device = <&trackball_split>;
         status = "okay";
 
-        // Adjust transform as needed (invert X/Y if necessary)
+        // Auto-mouse layer: activates layer 3 (MOUSE) when trackball moves, 600ms timeout
+        // TEMPORARY DISABLED: Need to investigate why it blocks trackball input
+        // input-processors = <&zip_temp_layer 3 600>;
+
+        // If you need to invert X/Y axes, uncomment and add transforms:
         // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
