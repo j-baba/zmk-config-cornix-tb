@@ -1,4 +1,6 @@
 // Split input configuration (central side - receives trackball data from peripheral)
+#include <dt-bindings/zmk/input_transform.h>
+
 /{
     split_inputs {
         #address-cells = <1>;
