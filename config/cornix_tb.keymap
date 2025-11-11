@@ -122,14 +122,14 @@
         default_layer {
             // -----------------------------------------------------------------------------------------
             // | NONE |  Q  |  W  |  E  |  R  |  T  |                   |  Y  |  U   |  I  |  O  |  P  | NONE |
-            // | NONE |  A  |  S  |  D  |  F  |  G  |  MUTE  |  |  UP  | TB  |  J   |  K  |  L  |  -  | NONE |
+            // | NONE |  A  |  S  |  D  |  F  |  G  |  MUTE  |  | PSCR | TB  |  H   |  J  |  K  |  L  |  -  | NONE |
             // | NONE |  Z  |  X  |  C  |  V  |  B  |  MCLK  |  | DOWN |  N  |  M   |  ,  |  .  |  /  | NONE |
             //               | NONE | CTRL | WIN | ALT | SPC(L1) | GRV(L3) | | BKSP | ENT(L2) | NONE | NONE | NONE | NONE |
 
             bindings = <
 &none  &kp Q             &kp W         &kp E         &kp R        &kp T                                                   &kp Y          &kp U        &kp I      &kp O       &kp P            &none
-&none  &kp A             &kp S         &kp D         &kp F        &kp G                                                   &kp H          &kp J        &kp K      &kp L       &kp MINUS        &none
-&none  &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B                      &kp C_MUTE  &kp PRINTSCREEN  &kp N          &kp M        &kp COMMA  &kp PERIOD  &kp SLASH        &none
+&none  &kp A             &kp S         &kp D         &kp F        &kp G        &kp C_MUTE       &kp PRINTSCREEN            &kp H          &kp J        &kp K      &kp L       &kp MINUS        &none
+&none  &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B        &mkp MCLK        &kp DOWN                   &kp N          &kp M        &kp COMMA  &kp PERIOD  &kp SLASH        &none
 &none  &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 3 LANG_ZENKAKUHANKAKU                               &kp BACKSPACE  &lt 2 ENTER  &none      &none       &kp RIGHT_SHIFT  &none
             >;
 
@@ -139,9 +139,9 @@
         function_layer {
             // -----------------------------------------------------------------------------------------
             // | NONE |  F1  |  F2  |  F3  |  F4  |  F5  |                   |  F6  |  F7  |  F8  |  F9  | F10 | NONE |
-            // | NONE |  :   |  !   |  /   |  (   |  [   |        |  |       | TB   |  _   | MB1  |  UP  | MB2 | NONE |
-            // | NONE |  ;   |  ?   |  ¥   |  )   |  ]   |   '    |  |       |  @   | LEFT | DOWN | RGT  | F11 | NONE |
-            //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | NONE |
+            // | NONE |  :   |  !   |  /   |  (   |  [   | TRANS |  | TRANS | TB   |  _   | MB1  |  UP  | MB2 |  ;  | NONE |
+            // | NONE |  ;   |  ?   |  ¥   |  )   |  ]   |   '    |  | TRANS |  @   | LEFT | DOWN | RGT  | F11 | NONE |
+            //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | F12 |
 
             bindings = <
 &none  &kp F1        &kp F2    &kp F3     &kp F4         &kp F5                                           &kp F6             &kp F7    &kp F8    &kp F9     &kp F10        &none
@@ -156,7 +156,7 @@
         num_layer {
             // -----------------------------------------------------------------------------------------
             // | NONE | TAB  |  7   |  8   |  9   |  -   |                   |  ]   | TRANS| MB3  | TRANS| TRANS| NONE |
-            // | NONE |  *   |  4   |  5   |  6   |  +   |        |  |       | TB   |  )   | MB1  |  UP  | MB2  | NONE |
+            // | NONE |  *   |  4   |  5   |  6   |  +   | TRANS |  | TRANS | TB   |  )   | MB1  |  UP  | MB2  |  :  | NONE |
             // | NONE |  /   |  1   |  2   |  3   |  =   |   `    |  |  DEL  |  }   | LEFT | DOWN | RGT  |  /   | NONE |
             //               | NONE |  ESC |  0   |  .   | TRANS | DEL    |  | TRANS | TRANS| NONE | NONE | NONE | NONE |
 
@@ -173,8 +173,8 @@
         scroll_layer {
             // -----------------------------------------------------------------------------------------
             // | NONE | BT0  | BT1  | BT2  | BT3  | BT4  |                   | ⌘⌃← | ⌘TAB | MB3  | TRANS| ⌘⌃→ | NONE |
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|        |  |       | TB   | MB4  | MB1  |  UP  | MB2  | NONE |
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|        |  |       | TRANS| TRANS| LEFT | DOWN | RGT  | NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS| TRANS |  | TRANS | TB   | MB4  | MB1  |  UP  | MB2  | MB5 | NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS| TRANS |  | TRANS | TRANS| LEFT | DOWN | RGT  | TRANS| NONE |
             //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | NONE |
 
             bindings = <
@@ -190,8 +190,8 @@
         mouse_layer {
             // -----------------------------------------------------------------------------------------
             // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|                   | TRANS| TRANS| TRANS| TRANS| TRANS| NONE |
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|        |  |  TO0  | TB   | MB1  | MO3  | MB2  | MB3  | NONE |
-            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS|        |  |       | TRANS| TRANS| TRANS| TRANS| TRANS| NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS| TRANS |  |  TO0  | TB   | TRANS| MB1  | MO3  | MB2  | MB3 | NONE |
+            // | NONE | TRANS| TRANS| TRANS| TRANS| TRANS| TRANS |  | TRANS | TRANS| TRANS| TRANS| TRANS| TRANS| NONE |
             //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | BOOT |
 
             bindings = <
