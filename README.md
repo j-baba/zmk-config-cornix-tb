@@ -1,68 +1,84 @@
 # ZMK Config for Cornix TB (Trackball)
 
-This is a ZMK firmware configuration for the Cornix split keyboard with integrated trackball support.
+Cornixとモジュール型トラックボールを連携させ、一つのキーボードとして利用できるようにするZMKファームウェアです。
 
-## Hardware
+## モジュール型トラックボール
 
-- **Left Half**: Cornix Left (Central) - Main controller
-- **Right Half**: Cornix Right (Peripheral) - Right keyboard half
-- **Trackball**: Separate trackball peripheral with PAW3222 sensor
+ ![トラックボールモジュール搭載例](docs/images/trackball_mount.jpg)
+ 親指キーの一番外側のキースイッチの箇所にマウントすることを想定
+ 一応左でも実装可能と思うが調整が必要
 
-## Features
+ ### 必要部品
+ - **PAW3222ブレイクアウトボード**: https://nogikes.booth.pm/items/6520217
+ - **FFCコネクタ変換基板**: 上記からセット購入推奨
+ - **FFCケーブル**: 15cm以上で取り回ししやすくなります
+ - **XIAO BLE nrf52840**: 
+ - **上記配線用ケーブル**:
+ - **トラックボールケース**: https://github.com/sekigon-gonnoc/torabo-tsuki-lp/blob/master/3d-models/STL/trackball-case-19mm-Body.stl
+ - **トラックボールケース用マウント台**: 後日公開
+ - **19mmトラックボール**: PTFE球がおすすめ 
 
-- Auto-mouse layer - Activates when trackball moves
-- 5 layers: Default, Function, Num, Scroll, Mouse
-- Bluetooth split keyboard (supports 3 devices)
-- Japanese keyboard layout support
-- Prospector status advertisement for real-time visualization
-- RGB LED indicators
+  ### 配線： PAW3222センサー ⇔ Seeeduino XIAO nRF52840
 
-## Building Firmware
+  | ピン番号 | PAW3222信号 | 機能 | XIAO nRF52840ピン | 備考 |
+  |---------|------------|------|------------------|------|
+  | 1 | 3.3V | 電源 | 3V3 | 3.3V電源 |
+  | 2 | CS | Chip Select | D10 | SPI通信 |
+  | 3 | MOTION | モーション検出 | D9 | 割り込み信号 |
+  | 4 | SDIO | SPI Data I/O | D8 | 双方向データ |
+  | 5 | SCLK | SPI Clock | D7 | クロック |
+  | 6 | GND | グランド | GND | グランド |
 
-Firmware is automatically built via GitHub Actions when you push changes.
+  バッテリーを配線してもいいと思います。
+  現段階ではUSB給電を想定しています。
 
-Download the latest firmware from the [Actions tab](../../actions).
+  配線例
+ ![配線例](docs/images/trackball_wiring.jpg)
 
-## Keymap Editor
+## Cornix TBの構成
+- **Left Cornix**: Central
+- **Right Cornix**: Peripheral
+- **Trackball module**: Peripheral
 
-Edit your keymap visually using [keymap-editor](https://nickcoutsos.github.io/keymap-editor/)
+Peripheralが2台になる3台構成になります。
 
-## Flashing
+## Prospectorについて
 
-1. Download the `.uf2` files from GitHub Actions artifacts
-2. Double-tap the reset button on each device to enter bootloader mode
-3. Copy the corresponding `.uf2` file to the device
+現段階でProspectorを使用するように設定されていますが不要であればconfig/west.ymlとconfig/cornix_left.confを編集してください。
 
-### Files
+## 参考資料
+下記情報を大いに活用させていただきました。ありがとうございます。
+- https://github.com/hitsmaxft/zmk-keyboard-cornix/
+- https://zenn.dev/kot149/articles/zmk-workspace
+- https://zenn.dev/kot149/articles/zmk-input-processor-cheat-sheet
+- https://zenn.dev/kot149/articles/zmk-auto-mouse-layer
+- https://note.com/pooh_polo/n/n133ad59486ea
+- https://github.com/sekigon-gonnoc/small-mouse-sensor-module
 
-- `cornix_left_central.uf2` - Left half (central)
-- `cornix_right.uf2` - Right half (peripheral)
-- `trackball_peripheral.uf2` - Trackball module
-- `reset.uf2` - Settings reset (troubleshooting)
+## ライセンス
 
-## Configuration
+このプロジェクトはMITライセンスの下で公開されています。
 
-Main configuration files:
+```
+MIT License
 
-- `config/cornix_left.keymap` - Keymap definition
-- `config/cornix_left.conf` - Feature configuration
-- `config/west.yml` - Dependencies
-- `config/build.yaml` - Build targets
+Copyright (c) 2025 Cornix TB Contributors
 
-## Layers
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-0. **DEFAULT** - Base QWERTY layer
-1. **FUNCTION** - Function keys and symbols
-2. **NUM** - Number pad
-3. **SCROLL** - Bluetooth controls and scrolling
-4. **MOUSE** - Auto-activated on trackball movement
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Trackball
-
-- 180-degree rotation (X and Y inverted)
-- Auto-mouse layer timeout: 600ms
-- Position 46 (RH2) disabled for trackball placement
-
-## License
-
-MIT
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
