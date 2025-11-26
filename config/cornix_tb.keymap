@@ -88,16 +88,19 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <14 15>;
+            layers = <0>;
         };
 
         sfttab {
             bindings = <&kp LS(TAB)>;
             key-positions = <16 15>;
+            layers = <0>;
         };
 
         dq {
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <21 22>;
+            layers = <0>;
         };
     };
 
