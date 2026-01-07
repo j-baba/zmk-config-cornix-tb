@@ -18,4 +18,8 @@ include:
   # Settings reset (for troubleshooting)
   - board: cornix_left
     shield: settings_reset
-    artifact-name: reset
+    artifact-name: reset_cornix
+
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: reset_xiao
