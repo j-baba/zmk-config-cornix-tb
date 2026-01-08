@@ -16,6 +16,14 @@ include:
     artifact-name: trackball_peripheral
 
   # Settings reset (for troubleshooting)
+  # WARNING: Use the correct reset firmware for each device!
+  # - reset_cornix: Cornix keyboards only (nRF52840 E73 module)
+  # - reset_xiao: Xiao nRF52840 BLE only (trackball module)
+  # Flashing the wrong reset firmware can corrupt the bootloader!
   - board: cornix_left
     shield: settings_reset
-    artifact-name: reset
+    artifact-name: reset_cornix
+
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: reset_xiao

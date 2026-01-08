@@ -42,6 +42,24 @@ Cornixとモジュール型トラックボールを連携させ、一つのキ�
 
 Peripheralが2台になる3台構成になります。
 
+## ファームウェア書き込み時の注意
+
+> **⚠️ 重要: リセットファームウェアを間違えないでください**
+
+GitHub Actions でビルドされるファームウェアには、**デバイスごとに異なるリセットファームウェア**が含まれます：
+
+| ファイル名 | 対象デバイス | 書き込み先 |
+|-----------|-------------|-----------|
+| `cornix_left_central.uf2` | Cornix Left | Cornix Left |
+| `cornix_right.uf2` | Cornix Right | Cornix Right |
+| `trackball_peripheral.uf2` | トラックボール | **Xiao nRF52840** |
+| `reset_cornix.uf2` | Cornix用リセット | **Cornix のみ** |
+| `reset_xiao.uf2` | Xiao用リセット | **Xiao のみ** |
+
+**Cornix 用の `reset_cornix.uf2` を Xiao に書き込むとブートローダーが破損します。**
+
+同じ nRF52840 チップでもボード設定が異なるため互換性がありません。誤って書き込んでしまった場合は [Xiao 復旧手順](docs/xiao_recovery.md) を参照してください。
+
 ## Prospectorについて
 
 現段階でProspectorを使用するように設定されていますが不要であればconfig/west.ymlとconfig/cornix_left.confを編集してください。
@@ -55,30 +73,18 @@ Peripheralが2台になる3台構成になります。
 - https://note.com/pooh_polo/n/n133ad59486ea
 - https://github.com/sekigon-gonnoc/small-mouse-sensor-module
 
-## ライセンス
+## License
 
-このプロジェクトはMITライセンスの下で公開されています。
+This project is licensed under the [MIT License](LICENSE).
 
-```
-MIT License
+### Third-Party Components
 
-Copyright (c) 2025 Cornix TB Contributors
+This project is built upon the following open-source projects:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+| Project | License | Usage |
+|---------|---------|-------|
+| [zmk-keyboard-cornix](https://github.com/hitsmaxft/zmk-keyboard-cornix) | Apache-2.0 | Cornix board definitions |
+| [small-mouse-sensor-module](https://github.com/sekigon-gonnoc/small-mouse-sensor-module) | MIT | Sensor module design reference |
+| [zmk-driver-paw3222](https://github.com/sekigon-gonnoc/zmk-driver-paw3222) | MIT | PAW3222 trackball driver |
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for full license texts and attribution details.

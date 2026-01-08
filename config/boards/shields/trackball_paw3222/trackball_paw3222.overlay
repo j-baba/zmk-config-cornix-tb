@@ -2,33 +2,21 @@
     chosen {
         zmk,kscan = &kscan_none;
         zmk,battery = &vbatt;
-        zmk,led-widgets-dev = &led_status;
+    };
+
+    aliases {
+        led-red = &led0;
+        led-green = &led2;
+        led-blue = &led1;
     };
 
     kscan_none: kscan_none {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
         diode-direction = "col2row";
-        // Dummy matrix (no actual keys)
-        row-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-        col-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
-    };
-
-    // LED status indicator using Xiao's built-in LED (P0.26)
-    led_status: led_status {
-        compatible = "gpio-leds";
-        status = "okay";
-        blue_led: led_0 {
-            gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
-            label = "Blue LED";
-        };
-    };
-
-    // LED widget configuration (all colors point to the same blue LED)
-    aliases {
-        led-red = &blue_led;
-        led-green = &blue_led;
-        led-blue = &blue_led;
+        // Dummy matrix (no actual keys) - using unused GPIOs
+        row-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+        col-gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
     };
 
     // Battery voltage divider (Xiao BLE has VBAT on P0.31)
