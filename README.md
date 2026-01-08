@@ -73,42 +73,18 @@ GitHub Actions でビルドされるファームウェアには、**デバイス
 - https://note.com/pooh_polo/n/n133ad59486ea
 - https://github.com/sekigon-gonnoc/small-mouse-sensor-module
 
-## ライセンス
+## License
 
-このプロジェクトの**新規コード**は MIT ライセンスの下で公開されています。
+This project is licensed under the [MIT License](LICENSE).
 
-ただし、本プロジェクトは以下のサードパーティプロジェクトに基づいています：
+### Third-Party Components
 
-| プロジェクト | ライセンス | 用途 |
-|-------------|-----------|------|
-| [zmk-keyboard-cornix](https://github.com/hitsmaxft/zmk-keyboard-cornix) | Apache-2.0 | Cornix ボード定義 |
-| [small-mouse-sensor-module](https://github.com/sekigon-gonnoc/small-mouse-sensor-module) | MIT | センサーモジュール設計参考 |
-| [zmk-driver-paw3222](https://github.com/sekigon-gonnoc/zmk-driver-paw3222) | MIT | PAW3222 ドライバ |
+This project is built upon the following open-source projects:
 
-詳細は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を参照してください。
+| Project | License | Usage |
+|---------|---------|-------|
+| [zmk-keyboard-cornix](https://github.com/hitsmaxft/zmk-keyboard-cornix) | Apache-2.0 | Cornix board definitions |
+| [small-mouse-sensor-module](https://github.com/sekigon-gonnoc/small-mouse-sensor-module) | MIT | Sensor module design reference |
+| [zmk-driver-paw3222](https://github.com/sekigon-gonnoc/zmk-driver-paw3222) | MIT | PAW3222 trackball driver |
 
-### 本プロジェクトのライセンス (MIT)
-
-```
-MIT License
-
-Copyright (c) 2025 Cornix TB Contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for full license texts and attribution details.
