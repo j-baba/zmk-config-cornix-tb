@@ -10,6 +10,7 @@ zmk/
 modules/
 tools/
 bootloader/
+zmk-*/
 
 # Python virtual environments
 venv/
