@@ -75,7 +75,19 @@ GitHub Actions でビルドされるファームウェアには、**デバイス
 
 ## ライセンス
 
-このプロジェクトはMITライセンスの下で公開されています。
+このプロジェクトの**新規コード**は MIT ライセンスの下で公開されています。
+
+ただし、本プロジェクトは以下のサードパーティプロジェクトに基づいています：
+
+| プロジェクト | ライセンス | 用途 |
+|-------------|-----------|------|
+| [zmk-keyboard-cornix](https://github.com/hitsmaxft/zmk-keyboard-cornix) | Apache-2.0 | Cornix ボード定義 |
+| [small-mouse-sensor-module](https://github.com/sekigon-gonnoc/small-mouse-sensor-module) | MIT | センサーモジュール設計参考 |
+| [zmk-driver-paw3222](https://github.com/sekigon-gonnoc/zmk-driver-paw3222) | MIT | PAW3222 ドライバ |
+
+詳細は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を参照してください。
+
+### 本プロジェクトのライセンス (MIT)
 
 ```
 MIT License
