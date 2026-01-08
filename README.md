@@ -42,6 +42,24 @@ Cornixとモジュール型トラックボールを連携させ、一つのキ�
 
 Peripheralが2台になる3台構成になります。
 
+## ファームウェア書き込み時の注意
+
+> **⚠️ 重要: リセットファームウェアを間違えないでください**
+
+GitHub Actions でビルドされるファームウェアには、**デバイスごとに異なるリセットファームウェア**が含まれます：
+
+| ファイル名 | 対象デバイス | 書き込み先 |
+|-----------|-------------|-----------|
+| `cornix_left_central.uf2` | Cornix Left | Cornix Left |
+| `cornix_right.uf2` | Cornix Right | Cornix Right |
+| `trackball_peripheral.uf2` | トラックボール | **Xiao nRF52840** |
+| `reset_cornix.uf2` | Cornix用リセット | **Cornix のみ** |
+| `reset_xiao.uf2` | Xiao用リセット | **Xiao のみ** |
+
+**Cornix 用の `reset_cornix.uf2` を Xiao に書き込むとブートローダーが破損します。**
+
+同じ nRF52840 チップでもボード設定が異なるため互換性がありません。誤って書き込んでしまった場合は [Xiao 復旧手順](docs/xiao_recovery.md) を参照してください。
+
 ## Prospectorについて
 
 現段階でProspectorを使用するように設定されていますが不要であればconfig/west.ymlとconfig/cornix_left.confを編集してください。
