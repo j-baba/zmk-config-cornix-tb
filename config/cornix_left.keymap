@@ -162,7 +162,7 @@
 
             bindings = <
 &kp ESC           &kp Q         &kp W         &kp E  &kp R        &kp T                                 &kp Y          &kp U        &kp I      &kp O           &kp P           &kp MINUS
-&kp TAB           &kp A         &kp S         &kp D  &kp F        &kp G                                 &kp H          &kp J        &kp K      &kp L           &kp COLON       &kp AT_SIGN
+&kp TAB           &kp A         &kp S         &kp D  &kp F        &kp G                                 &kp H          &kp J        &kp K      &kp L           &kp COLON       &kp JP_AT
 &kp LEFT_SHIFT    &kp Z         &kp X         &kp C  &kp V        &kp B    &kp C_MUTE  &kp PRINTSCREEN  &kp N          &kp M        &kp COMMA  &kp PERIOD      &kp UP_ARROW    &kp SLASH
 &kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &sl 3  &lt 1 SPACE  &kp DEL                               &kp BACKSPACE  &lt 2 ENTER  &none      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
@@ -178,10 +178,10 @@
             //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | F12 |
 
             bindings = <
-&none  &kp SQT      &kp DOUBLE_QUOTES  &kp EXCLAMATION  &none     &none                                              &kp NON_US_BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none   &kp PERCENT  &kp UNDERSCORE
-&none  &kp AT_SIGN  &kp SEMICOLON      &kp DOLLAR       &kp PLUS  &kp ASTERISK                                       &kp HASH              &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none   &kp CARET    &none
-&none  &none        &none              &kp COLON        &none     &kp NON_US_BACKSLASH  &kp C_MUTE  &kp PRINTSCREEN  &kp AMPERSAND         &kp LEFT_BRACE        &kp RIGHT_BRACE        &none   &none        &none
-&none  &trans       &trans             &trans           &trans    &trans                                             &trans                &trans                &trans                 &trans  &none        &none
+&none  &kp JP_QUOTE  &kp JP_DQUOTE  &kp EXCLAMATION  &none        &none                                         &kp JP_YEN        &kp JP_LPAREN    &kp JP_RPAREN    &none   &kp PERCENT    &kp JP_UNDERSCORE
+&none  &kp JP_AT     &kp SEMICOLON  &kp DOLLAR       &kp JP_PLUS  &kp JP_ASTERISK                               &kp HASH          &kp JP_LBRACKET  &kp JP_RBRACKET  &none   &kp JP_CARET   &none
+&none  &none         &none          &kp JP_COLON     &none        &kp JP_YEN       &kp C_MUTE  &kp PRINTSCREEN  &kp JP_AMPERSAND  &kp JP_LBRACE    &kp JP_RBRACE    &none   &none          &none
+&none  &trans        &trans         &trans           &trans       &trans                                        &trans            &trans           &trans           &trans  &none          &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
