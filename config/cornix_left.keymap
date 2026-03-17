@@ -164,10 +164,10 @@
             //               | NONE | CTRL | WIN | ALT | SPC(L1) | GRV(L3) | | BKSP | ENT(L2) | NONE | NONE | NONE | NONE |
 
             bindings = <
-&none  &kp Q             &kp W         &kp E         &kp R        &kp T                                     &kp Y          &kp U        &kp I      &kp O       &kp P            &none
-&none  &kp A             &kp S         &kp D         &kp F        &kp G                                     &kp H          &kp J        &lt 3 K    &kp L       &kp MINUS        &none
-&none  &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V        &kp B        &kp C_MUTE  &kp PRINTSCREEN  &kp N          &kp M        &kp COMMA  &kp PERIOD  &kp SLASH        &none
-&none  &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 3 GRAVE                               &kp BACKSPACE  &lt 2 ENTER  &none      &none       &kp RIGHT_SHIFT  &none
+&kp ESC           &kp Q         &kp W         &kp E  &kp R        &kp T                                 &kp Y          &kp U        &kp I      &kp O           &kp P           &kp MINUS
+&kp TAB           &kp A         &kp S         &kp D  &kp F        &kp G                                 &kp H          &kp J        &kp K      &kp L           &kp COLON       &kp JP_AT
+&kp LEFT_SHIFT    &kp Z         &kp X         &kp C  &kp V        &kp B    &kp C_MUTE  &kp PRINTSCREEN  &kp N          &kp M        &kp COMMA  &kp PERIOD      &kp UP_ARROW    &kp SLASH
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &sl 3  &lt 1 SPACE  &kp DEL                               &kp BACKSPACE  &lt 2 ENTER  &none      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -181,10 +181,10 @@
             //               | NONE | TRANS| TRANS| TRANS| TRANS | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | F12 |
 
             bindings = <
-&none  &kp F1        &kp F2     &kp F3      &kp F4         &kp F5                                 &kp F6             &kp F7    &kp F8    &kp F9     &kp F10        &none
-&none  &kp JP_COLON  &kp EXCL   &kp SLASH   &kp JP_LPAREN  &kp JP_LBRACKET                        &kp JP_UNDERSCORE  &mkp MB1  &kp UP    &mkp MB2   &kp SEMICOLON  &none
-&none  &kp SEMI      &kp QMARK  &kp JP_YEN  &kp JP_RPAREN  &kp JP_RBRACKET  &kp JP_QUOTE  &trans  &kp JP_AT          &kp LEFT  &kp DOWN  &kp RIGHT  &kp F11        &none
-&none  &trans        &trans     &trans      &trans         &trans                                 &trans             &trans    &trans    &trans     &mt RSHFT F12  &none
+&none  &kp JP_QUOTE  &kp JP_DQUOTE  &kp EXCLAMATION  &none        &none                                         &kp JP_YEN        &kp JP_LPAREN    &kp JP_RPAREN    &none   &kp PERCENT    &kp JP_UNDERSCORE
+&none  &kp JP_AT     &kp SEMICOLON  &kp DOLLAR       &kp JP_PLUS  &kp JP_ASTERISK                               &kp HASH          &kp JP_LBRACKET  &kp JP_RBRACKET  &none   &kp JP_CARET   &none
+&none  &none         &none          &kp JP_COLON     &none        &kp JP_YEN       &kp C_MUTE  &kp PRINTSCREEN  &kp JP_AMPERSAND  &kp JP_LBRACE    &kp JP_RBRACE    &none   &none          &none
+&none  &trans        &trans         &trans           &trans       &trans                                        &trans            &trans           &trans           &trans  &none          &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -198,10 +198,10 @@
             //               | NONE |  ESC |  0   |  .   | TRANS |  DEL   |  | TRANS | TRANS| NONE | NONE | NONE | NONE |
 
             bindings = <
-&none  &kp TAB          &kp N7  &kp N8   &kp N9  &kp MINUS                               &kp RBKT  &trans    &mkp MB3  &trans     &trans     &none
-&none  &kp JP_ASTERISK  &kp N4  &kp N5   &kp N6  &kp JP_PLUS                             &kp RPAR  &mkp MB1  &kp UP    &mkp MB2   &kp COLON  &none
-&none  &mt LSHFT SLASH  &kp N1  &kp N2   &kp N3  &kp EQUAL    &kp JP_BACKQUOTE  &kp DEL  &kp RBRC  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SLASH  &none
-&none  &kp ESC          &kp N0  &kp DOT  &trans  &kp DELETE                              &trans    &trans    &trans    &trans     &trans     &none
+&none  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                 &kp COMMA   &kp N7  &kp N8  &kp N9  &none  &none
+&none  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10                &kp PERIOD  &kp N4  &kp N5  &kp N6  &none  &none
+&none  &kp F11  &kp F12  &none   &none   &none    &none  &none  &kp N0      &kp N1  &kp N2  &kp N3  &none  &none
+&none  &none    &none    &none   &none   &none                  &none       &none   &none   &none   &none  &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -216,7 +216,7 @@
 
             bindings = <
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &kp LG(LC(LEFT))  &kp LG(TAB)  &mkp MB3  &trans     &kp LG(LC(RIGHT))  &none
-&none  &trans        &trans        &trans        &trans        &trans                       &mkp MB4          &mkp MB1     &kp UP    &mkp MB2   &mkp MB5           &none
+&none  &trans        &trans        &trans        &trans        &trans                       &mkp MB4          &mkp MB1     &mkp MB2  &mkp MB2   &mkp MB5           &none
 &none  &trans        &trans        &trans        &trans        &trans        &trans  &to 0  &trans            &kp LEFT     &kp DOWN  &kp RIGHT  &trans             &none
 &none  &trans        &trans        &trans        &to 0         &trans                       &trans            &trans       &trans    &trans     &trans             &none
             >;
@@ -233,7 +233,7 @@
 
             bindings = <
 &none  &trans  &trans  &trans  &trans       &trans                       &trans  &trans       &mkp MB3  &trans    &trans  &none
-&none  &trans  &trans  &trans  &trans       &trans                       &trans  &mkp MB1     &trans    &mkp MB2  &trans  &none
+&none  &trans  &trans  &trans  &trans       &trans                       &trans  &mkp MB1     &mkp MB2  &mkp MB2  &trans  &none
 &none  &trans  &trans  &trans  &trans       &trans       &trans  &trans  &trans  &trans       &trans    &trans    &trans  &none
 &none  &trans  &trans  &trans  &lt 1 SPACE  &lt 3 GRAVE                  &trans  &lt 2 ENTER  &trans    &trans    &trans  &none
             >;
