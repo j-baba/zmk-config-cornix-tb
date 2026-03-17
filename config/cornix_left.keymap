@@ -85,22 +85,38 @@
             layers = <3>;
         };
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <14 15>;
+                muhenkan {
+            bindings = <&kp INT_MUHENKAN>;
+            key-positions = <16 17>;
             layers = <0>;
         };
 
-        stab {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <15 16>;
+        henkan {
+            bindings = <&kp LS(INT_HENKAN)>;
+            key-positions = <18 19>;
             layers = <0>;
         };
 
-        dq {
-            bindings = <&kp DOUBLE_QUOTES>;
-            key-positions = <22 21>;
+        mouse1 {
+            bindings = <&mkp MB1>;
+            key-positions = <19 20>;
             layers = <0>;
+        };
+
+        mouse2 {
+            bindings = <&mkp MB2>;
+            key-positions = <20 21>;
+            layers = <0>;
+        };
+
+        home {
+            bindings = <&kp HOME>;
+            key-positions = <28 29>;
+        };
+
+        end {
+            bindings = <&kp END>;
+            key-positions = <32 33>;
         };
     };
 
@@ -110,6 +126,20 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+
+        p_com: p_com {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp J &kp U &kp N &kp I &kp C &kp H &kp I &kp N0 &kp N2 &kp N2 &kp N4 &kp EXCLAMATION>;
+            label = "P_COM";
+        };
+
+        p_large: p_large {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(J) &kp U &kp N &kp I &kp C &kp H &kp I &kp N0 &kp N2 &kp N2 &kp N4 &kp EXCLAMATION>;
+            label = "P_LARGE";
         };
     };
 
