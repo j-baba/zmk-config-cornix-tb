@@ -85,14 +85,14 @@
             layers = <3>;
         };
 
-                muhenkan {
+        muhenkan {
             bindings = <&kp INT_MUHENKAN>;
             key-positions = <16 17>;
             layers = <0>;
         };
 
         henkan {
-            bindings = <&kp LS(INT_HENKAN)>;
+            bindings = <&kp INT_HENKAN>;
             key-positions = <18 19>;
             layers = <0>;
         };
@@ -245,13 +245,13 @@
             //               | NONE | TRANS| TRANS| TRANS| TO0   | TRANS  |  | TRANS | TRANS| NONE | NONE | NONE | NONE |
 
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &kp LG(LC(LEFT))  &kp LG(TAB)  &mkp MB3  &p_large   &p_com    &none
-&none  &trans        &trans        &trans        &trans        &trans                       &mkp MB4          &mkp MB1     &mkp MB2  &mkp MB2   &mkp MB5  &none
-&none  &trans        &trans        &trans        &trans        &trans        &trans  &to 0  &trans            &kp LEFT     &kp DOWN  &kp RIGHT  &trans    &none
-&none  &trans        &trans        &trans        &to 0         &trans                       &trans            &trans       &trans    &trans     &trans    &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &trans  &trans  &trans  &p_large  &p_com  &none
+&none  &trans        &trans        &trans        &trans        &trans                       &trans  &trans  &trans  &trans    &trans  &none
+&none  &trans        &trans        &trans        &trans        &trans        &trans  &to 0  &trans  &trans  &trans  &trans    &trans  &none
+&none  &trans        &trans        &trans        &to 0         &trans                       &trans  &trans  &trans  &trans    &trans  &none
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(KP_MINUS) LC(KP_PLUS) &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp LC(KP_PLUS) LC(KP_MINUS) &inc_dec_kp PG_DN PG_UP>;
         };
 
         mouse_layer {
@@ -262,10 +262,10 @@
             //               | NONE | TRANS| TRANS| TRANS| SPC(L1) | GRV(L3) |  | TRANS | ENT(L2) | NONE | NONE | NONE | BOOT |
 
             bindings = <
-&none  &trans  &trans  &trans  &trans       &trans                       &trans  &trans       &mkp MB3  &trans    &trans  &none
-&none  &trans  &trans  &trans  &trans       &trans                       &trans  &mkp MB1     &mkp MB2  &mkp MB2  &trans  &none
-&none  &trans  &trans  &trans  &trans       &trans       &trans  &trans  &trans  &trans       &trans    &trans    &trans  &none
-&none  &trans  &trans  &trans  &lt 1 SPACE  &lt 3 GRAVE                  &trans  &lt 2 ENTER  &trans    &trans    &trans  &none
+&none  &trans  &trans  &trans  &trans       &trans                       &trans  &trans       &trans  &trans  &trans  &none
+&none  &trans  &trans  &trans  &trans       &trans                       &trans  &trans       &trans  &trans  &trans  &none
+&none  &trans  &trans  &trans  &trans       &trans       &trans  &trans  &trans  &trans       &trans  &trans  &trans  &none
+&none  &trans  &trans  &trans  &trans  &trans                            &trans  &lt 2 ENTER  &trans  &trans  &trans  &none
             >;
 
             sensor-bindings = <&WheelScroll SCRL_DOWN SCRL_UP &inc_dec_kp PG_UP PG_DN>;
